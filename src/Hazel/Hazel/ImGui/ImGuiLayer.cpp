@@ -67,7 +67,11 @@ namespace Hazel {
 		io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
 
 		ImGui::StyleColorsDark();
-		ImGui_ImplGlfw_InitForOpenGL(GuiLayer_window, true);// 绑定GLFW与OpenGL3后端
+
+		Application& app = Application::Get();
+		GLFWwindow* window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
+
+		ImGui_ImplGlfw_InitForOpenGL(window, true);// 绑定GLFW与OpenGL3后端
 		ImGui_ImplOpenGL3_Init("#version 410");// 设置OpenGL版本 4.1 Core		
 	}
 

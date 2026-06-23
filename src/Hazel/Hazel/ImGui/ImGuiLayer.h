@@ -5,16 +5,13 @@
 #include "Hazel/Events/KeyEvent.h"
 #include "Hazel/Events/MouseEvent.h"
 
-namespace Hazel {
-
-	static GLFWwindow* GuiLayer_window = nullptr;
+namespace Hazel 
+{
 	class HAZEL_API ImGuiLayer : public Layer
 	{
 	public:
 		ImGuiLayer();
 		~ImGuiLayer();
-
-		static void SetGLFWWindow(GLFWwindow* window) { GuiLayer_window = window; };
 
 		void OnAttach();
 		void OnDetach();
