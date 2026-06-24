@@ -5,19 +5,24 @@
 #include "Event.h"
 #include "ApplicationEvent.h"
 #include "ImGuiLayer.h"
-
+#include "Shader.h"
 namespace Hazel
 {
 	class HAZEL_API Application
 	{
 	private:
-		bool OnWindowClose(WindowCloseEvent& e);
 		std::unique_ptr<Window> m_Window;
-		ImGuiLayer* m_ImGuiLayer;
-
 		bool m_Running = true;
+		ImGuiLayer* m_ImGuiLayer;
 		LayerStack m_LayerStack;
+
 		static Application* s_Instance;
+
+		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+
+		std::unique_ptr<Shader> m_Shader;
+	private:
+		bool OnWindowClose(WindowCloseEvent& e);
 	public:
 		Application();
 		virtual ~Application();
