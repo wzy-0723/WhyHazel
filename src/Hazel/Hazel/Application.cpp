@@ -4,6 +4,8 @@
 #include "ApplicationEvent.h"
 #include "Log.h"
 #include "Input.h"
+
+
 namespace Hazel
 {
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -17,6 +19,10 @@ namespace Hazel
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 
 	Application::~Application()
@@ -26,13 +32,13 @@ namespace Hazel
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
-		layer->OnAttach();
+		layer->OnAttach();																					// OnAttach is declared in Layer and defined ImGuiLayer
 	}
 
-	void Application::PushOverlay(Layer* layer)
+	void Application::PushOverlay(Layer* overlay)
 	{
-		m_LayerStack.PushOverlay(layer);
-		layer->OnAttach();
+		m_LayerStack.PushOverlay(overlay);
+		overlay->OnAttach();
 	}
 
 
@@ -65,6 +71,13 @@ namespace Hazel
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
+
+			// @why：为什么同样的上下文，m_ImGuiLayer可以正常绘制，exampleLayer不行？？？
+			// 因为上下文变量跨库了！！！
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}

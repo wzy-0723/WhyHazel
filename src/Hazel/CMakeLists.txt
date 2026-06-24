@@ -13,7 +13,7 @@ add_definitions(-DHZ_BUILD_DLL)
 file(GLOB_RECURSE source CONFIGURE_DEPENDS *.h *.cpp *.qrc *.ui *.shader)
 
 source_group_by_dir(source "./")
-add_library(${PROJECT_NAME} SHARED ${source})
+add_library(${PROJECT_NAME} STATIC ${source})
 
 target_include_directories(${PROJECT_NAME} PUBLIC 
 	${src_dir_path}/Hazel
