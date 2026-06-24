@@ -6,6 +6,8 @@
 #include "ApplicationEvent.h"
 #include "ImGuiLayer.h"
 #include "Shader.h"
+#include "Buffer.h"
+#include "VertexArray.h"
 namespace Hazel
 {
 	class HAZEL_API Application
@@ -18,9 +20,12 @@ namespace Hazel
 
 		static Application* s_Instance;
 
-		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
 
-		std::unique_ptr<Shader> m_Shader;
+		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<VertexArray> m_VertexArray;
+
+		std::shared_ptr<Shader> m_BlueShader;
+		std::shared_ptr<VertexArray> m_SquareVA;
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 	public:

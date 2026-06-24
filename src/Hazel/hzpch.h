@@ -13,7 +13,7 @@
 #include <unordered_set>
 
 #include <fmt/format.h>
-
+#include <stdint.h>
 #ifdef HZ_PLATFORM_WINDOWS
 #include <Windows.h>
 #endif
