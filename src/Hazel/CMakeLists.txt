@@ -20,8 +20,9 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 	${src_dir_path}/Hazel/Hazel
 	${src_dir_path}/Hazel/Hazel/Events
 	${src_dir_path}/Hazel/Hazel/ImGui
+	${src_dir_path}/Hazel/Hazel/Renderer
 	${src_dir_path}/Hazel/Platform/Windows
-	
+	${src_dir_path}/Hazel/Platform/OpenGL
 )
 
 
