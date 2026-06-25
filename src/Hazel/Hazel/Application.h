@@ -4,14 +4,12 @@
 #include "LayerStack.h"
 #include "Event.h"
 #include "ApplicationEvent.h"
+
+#include "Timestep.h"
 #include "ImGuiLayer.h"
-#include "Shader.h"
-#include "Buffer.h"
-#include "VertexArray.h"
-#include "OrthographicCamera.h"
 namespace Hazel
 {
-	class HAZEL_API Application
+	class Application
 	{
 	private:
 		std::unique_ptr<Window> m_Window;
@@ -20,15 +18,7 @@ namespace Hazel
 		LayerStack m_LayerStack;
 
 		static Application* s_Instance;
-
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
+		float m_LastFrameTime = 0.0f;
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 	public:
