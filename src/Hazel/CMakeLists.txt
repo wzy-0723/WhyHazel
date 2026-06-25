@@ -7,9 +7,6 @@ find_package(OpenGL REQUIRED)
 find_package(glad CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
 
-
-add_definitions(-DHZ_BUILD_DLL)
-
 file(GLOB_RECURSE source CONFIGURE_DEPENDS *.h *.cpp *.qrc *.ui *.shader)
 
 source_group_by_dir(source "./")

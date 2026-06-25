@@ -8,6 +8,7 @@
 #include "Shader.h"
 #include "Buffer.h"
 #include "VertexArray.h"
+#include "OrthographicCamera.h"
 namespace Hazel
 {
 	class HAZEL_API Application
@@ -26,6 +27,8 @@ namespace Hazel
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 	public:
