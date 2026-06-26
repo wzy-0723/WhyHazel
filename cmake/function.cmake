@@ -56,7 +56,8 @@ endmacro(copy_file_to_bin)
 # file_name:源目录名称
 macro(copy_dir_to_bin target file_path file_name)
 	add_custom_command(TARGET ${target} POST_BUILD
-		COMMAND ${CMAKE_COMMAND} -E copy_if_different
+# copy_directory：递归拷贝文件夹
+		COMMAND ${CMAKE_COMMAND} -E copy_directory
 			"${file_path}"
 			"${bin_dir_path}/${CMAKE_CFG_INTDIR}/${file_name}")
 endmacro(copy_dir_to_bin)

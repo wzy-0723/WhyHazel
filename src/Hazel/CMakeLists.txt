@@ -1,11 +1,17 @@
 project(Hazel)
 
+#
+
+find_package(Stb REQUIRED)
+
+#
+find_package(glm CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
-find_package(glm REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(glad CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
+
 
 file(GLOB_RECURSE source CONFIGURE_DEPENDS *.h *.cpp *.qrc *.ui *.shader)
 
@@ -13,6 +19,7 @@ source_group_by_dir(source "./")
 add_library(${PROJECT_NAME} STATIC ${source})
 
 target_include_directories(${PROJECT_NAME} PUBLIC 
+	${src_dir_path}/WhyUtil
 	${src_dir_path}/Hazel
 	${src_dir_path}/Hazel/Hazel
 	${src_dir_path}/Hazel/Hazel/Core
@@ -21,10 +28,14 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 	${src_dir_path}/Hazel/Hazel/Renderer
 	${src_dir_path}/Hazel/Platform/Windows
 	${src_dir_path}/Hazel/Platform/OpenGL
+
 )
 
 
 target_link_libraries(${PROJECT_NAME} PUBLIC 
+#
+	WhyUtil	
+#
 	spdlog::spdlog
 	glfw 
 	OpenGL::GL

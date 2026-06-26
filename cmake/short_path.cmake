@@ -12,4 +12,3 @@ set(lib_dir_path ${CMAKE_BINARY_DIR}/lib)
 
 # 源码路径
 set(src_dir_path ${CMAKE_SOURCE_DIR}/src)
-message(STATUS "src_dir_path: ${src_dir_path}")

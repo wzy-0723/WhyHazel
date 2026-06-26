@@ -16,6 +16,8 @@
 
 #include "Buffer.h"
 #include "Shader.h"
+#include "Texture.h"
+
 #include "VertexArray.h"
 
 #include "OrthographicCamera.h"

@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
-# --- vcpkg
+
+# --- vcpkg  已经配置过全局生效，这一段实际不生效
 if (DEFINED ENV{VCPKG_ROOT} AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
     message(STATUS "VCPKG_ROOT: $ENV{VCPKG_ROOT}")
     set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
