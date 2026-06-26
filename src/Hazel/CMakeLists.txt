@@ -1,7 +1,6 @@
 project(Hazel)
 
 #
-
 find_package(Stb REQUIRED)
 
 #

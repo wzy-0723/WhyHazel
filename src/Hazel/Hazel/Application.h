@@ -12,8 +12,11 @@ namespace Hazel
 	class Application
 	{
 	private:
+		//
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+		bool m_Minimized = false;
+		//
 		ImGuiLayer* m_ImGuiLayer;
 		LayerStack m_LayerStack;
 
@@ -21,6 +24,7 @@ namespace Hazel
 		float m_LastFrameTime = 0.0f;
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
+		bool OnWindowResize(WindowResizeEvent& e);
 	public:
 		Application();
 		virtual ~Application();
