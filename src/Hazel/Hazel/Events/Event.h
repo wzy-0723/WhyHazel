@@ -62,23 +62,36 @@ namespace Hazel {
 		template<typename T>
 		using EventFn = std::function<bool(T&)>;
 
-		template<typename T>
-		bool Dispatch(EventFn<T> func)
+		//template<typename T>
+		//bool Dispatch(EventFn<T> func)
+		//{
+		//	if (m_Event.GetEventType() == T::GetStaticType())
+		//	{
+		//		/*
+		//			&m_Event：取基类 Event 对象的地址 Event*
+		//			(T*)&m_Event：C 风格强制转型，把基类指针转为派生事件指针 T*（如WindowResizeEvent*）
+		//			*(T*)&m_Event：解引用，得到派生类引用 T&
+		//			func(...)：把派生事件引用传入回调函数执行
+		//			返回的 bool 赋值给 m_Event.m_Handled：标记事件是否被处理
+		//		*/
+		//		m_Event.Handled = func(*(T*)&m_Event);
+		//		return true;
+		//	}
+		//	return false;
+		//}
+
+		// F will be deduced by the compiler
+		template<typename T, typename F>
+		bool Dispatch(const F& func)
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				/*
-					&m_Event：取基类 Event 对象的地址 Event*
-					(T*)&m_Event：C 风格强制转型，把基类指针转为派生事件指针 T*（如WindowResizeEvent*）
-					*(T*)&m_Event：解引用，得到派生类引用 T&
-					func(...)：把派生事件引用传入回调函数执行
-					返回的 bool 赋值给 m_Event.m_Handled：标记事件是否被处理
-				*/
-				m_Event.Handled = func(*(T*)&m_Event);
+				m_Event.Handled = func(static_cast<T&>(m_Event));
 				return true;
 			}
 			return false;
 		}
+
 	private:
 		Event& m_Event;
 	};
