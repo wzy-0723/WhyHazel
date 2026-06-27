@@ -9,6 +9,8 @@
 #include "FileUtil.h"
 
 #include "OrthographicCameraController.h"
+#include "EntryPoint.h"
+#include "Sandbox2D.h"
 
 class ExampleLayer : public Hazel::Layer
 {
@@ -16,7 +18,7 @@ public:
 	ExampleLayer()
 		: Layer("Example"), m_CameraController(1280.0f / 720.0f)
 	{
-		m_VertexArray.reset(Hazel::VertexArray::Create());
+		m_VertexArray = Hazel::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -38,7 +40,7 @@ public:
 		indexBuffer.reset(Hazel::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(Hazel::VertexArray::Create());
+		m_SquareVA = Hazel::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -217,8 +219,9 @@ private:
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
-		//PushOverlay(new Hazel::ImGuiLayer());
+		// 多层下，重设颜色会覆盖上一层
+		PushLayer(new Sandbox2D());
+		//PushLayer(new ExampleLayer());
 	}
 	~Sandbox()
 	{
