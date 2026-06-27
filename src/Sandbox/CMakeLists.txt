@@ -1,5 +1,5 @@
 project(Sandbox)
-file(GLOB_RECURSE source CONFIGURE_DEPENDS *.h *.cpp *.qrc *.ui *.shader)
+file(GLOB_RECURSE source CONFIGURE_DEPENDS *.h *.cpp *.qrc *.ui *.glsl)
 set(src_dir_path ${CMAKE_HOME_DIRECTORY}/src)
 
 include_directories(${src_dir_path}/Hazel)

@@ -18,10 +18,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(cmake/function.cmake)
 include(cmake/short_path.cmake)
 
-
-#
-add_definitions(-DHZ_PLATFORM_WINDOWS)
-
-
 add_subdirectory(src)
 
