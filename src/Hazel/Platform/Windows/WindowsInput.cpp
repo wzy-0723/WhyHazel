@@ -4,9 +4,8 @@
 #include "Application.h"
 #include <GLFW/glfw3.h>
 
-namespace Hazel {
-
-	Scope<Input> Input::s_Instance = CreateScope<WindowsInput>();
+namespace Hazel 
+{
 
 	bool WindowsInput::IsKeyPressedImpl(KeyCode key)
 	{
