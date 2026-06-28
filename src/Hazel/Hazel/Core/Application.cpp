@@ -6,6 +6,7 @@
 
 #include "Renderer.h"
 
+
 namespace Hazel
 {
 	Application* Application::s_Instance = nullptr;
