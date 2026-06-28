@@ -21,3 +21,9 @@
 
 #include "Log.h"
 #include "Instrumentor.h"
+#include <imgui.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <filesystem>
+#include "FileUtil.h"
