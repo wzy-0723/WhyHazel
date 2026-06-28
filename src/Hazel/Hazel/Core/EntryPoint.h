@@ -1,5 +1,5 @@
 #pragma once
-#include "Core.h"
+#include "Base.h"
 #ifdef HZ_PLATFORM_WINDOWS
 extern Hazel::Application* Hazel::CreateApplication();
 

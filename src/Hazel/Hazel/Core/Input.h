@@ -1,6 +1,6 @@
 #pragma once
 #include "hzpch.h"
-#include "Core.h"
+#include "Base.h"
 #include "KeyCodes.h"
 #include "MouseCodes.h"
 namespace Hazel 

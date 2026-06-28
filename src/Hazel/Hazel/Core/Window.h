@@ -1,7 +1,7 @@
 #pragma once
 #include "hzpch.h"
 
-#include "Core.h"
+#include "Base.h"
 #include "Event.h"
 namespace Hazel {
 
