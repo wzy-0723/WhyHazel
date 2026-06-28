@@ -22,6 +22,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 	${src_dir_path}/Hazel
 	${src_dir_path}/Hazel/Hazel
 	${src_dir_path}/Hazel/Hazel/Core
+	${src_dir_path}/Hazel/Hazel/Debug
 	${src_dir_path}/Hazel/Hazel/Events
 	${src_dir_path}/Hazel/Hazel/ImGui
 	${src_dir_path}/Hazel/Hazel/Renderer

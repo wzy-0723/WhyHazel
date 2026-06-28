@@ -20,3 +20,4 @@
 
 
 #include "Log.h"
+#include "Instrumentor.h"
