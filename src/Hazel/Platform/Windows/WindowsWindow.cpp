@@ -1,6 +1,8 @@
 #include "hzpch.h"
-#include <glad/glad.h>
+
 #include "WindowsWindow.h"
+
+#include "Input.h"
 
 #include "ApplicationEvent.h"
 #include "MouseEvent.h"
@@ -95,9 +97,9 @@ namespace Hazel {
 
 				switch (action)
 				{
-				case GLFW_PRESS: { KeyPressedEvent event(key, 0);	data.EventCallback(event);	break; }
-				case GLFW_RELEASE: { KeyReleasedEvent event(key);	data.EventCallback(event);	break; }
-				case GLFW_REPEAT: { KeyPressedEvent event(key, 1);	data.EventCallback(event);	break; }
+					case GLFW_PRESS: { KeyPressedEvent event(static_cast<KeyCode>(key), 0);	data.EventCallback(event);	break; }
+					case GLFW_RELEASE: { KeyReleasedEvent event(static_cast<KeyCode>(key));	data.EventCallback(event);	break; }
+					case GLFW_REPEAT: { KeyPressedEvent event(static_cast<KeyCode>(key), 1);	data.EventCallback(event);	break; }
 				}
 			}
 		);
@@ -105,7 +107,7 @@ namespace Hazel {
 		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
 			{
 				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-				KeyTypedEvent event(keycode);
+				KeyTypedEvent event(static_cast<KeyCode>(keycode));
 				data.EventCallback(event);
 			}
 		);
@@ -116,18 +118,18 @@ namespace Hazel {
 
 				switch (action)
 				{
-				case GLFW_PRESS:
-				{
-					MouseButtonPressedEvent event(button);
-					data.EventCallback(event);
-					break;
-				}
-				case GLFW_RELEASE:
-				{
-					MouseButtonReleasedEvent event(button);
-					data.EventCallback(event);
-					break;
-				}
+					case GLFW_PRESS:
+					{
+						MouseButtonPressedEvent event(static_cast<MouseCode>(button));
+						data.EventCallback(event);
+						break;
+					}
+					case GLFW_RELEASE:
+					{
+						MouseButtonReleasedEvent event(static_cast<MouseCode>(button));
+						data.EventCallback(event);
+						break;
+					}
 				}
 			});
 

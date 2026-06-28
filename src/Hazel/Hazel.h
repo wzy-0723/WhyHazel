@@ -8,7 +8,7 @@
 
 #include "Input.h"
 #include "KeyCodes.h"
-#include "MouseButtonCodes.h"
+#include "MouseCodes.h"
 
 
 #include "OrthographicCameraController.h"
