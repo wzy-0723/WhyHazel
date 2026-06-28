@@ -64,11 +64,6 @@ namespace Hazel {
 			++s_GLFWWindowCount;
 		}
 
-
-
-
-
-
 		m_Context = GraphicsContext::Create(m_Window);
 		m_Context->Init();
 
