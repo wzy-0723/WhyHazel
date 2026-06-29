@@ -63,8 +63,8 @@ namespace Hazel {
 
 		m_Context = GraphicsContext::Create(m_Window);
 		m_Context->Init();
-
-		glfwSetWindowUserPointer(m_Window, &m_Data);
+		
+		glfwSetWindowUserPointer(m_Window, &m_Data);//设置下面回调使用的用户区数据
 		SetVSync(true);
 
 		// Set GLFW callbacks

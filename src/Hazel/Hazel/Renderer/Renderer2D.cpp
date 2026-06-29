@@ -61,8 +61,11 @@ namespace Hazel
 			});
 		s_Data.QuadVertexArray->AddVertexBuffer(s_Data.QuadVertexBuffer);
 
+		// 保存基址，用于计算数据偏移
 		s_Data.QuadVertexBufferBase = new QuadVertex[s_Data.MaxVertices];
 
+
+		// 编制方形顶点绘制索引
 		uint32_t* quadIndices = new uint32_t[s_Data.MaxIndices];
 
 		uint32_t offset = 0;
@@ -125,6 +128,7 @@ namespace Hazel
 	{
 		HZ_PROFILE_FUNCTION();
 
+		// 动态渲染设置数据的地方，因为动态时不像静态一开始就绑定好顶点数据
 		uint32_t dataSize = (uint32_t)((uint8_t*)s_Data.QuadVertexBufferPtr - (uint8_t*)s_Data.QuadVertexBufferBase);
 		s_Data.QuadVertexBuffer->SetData(s_Data.QuadVertexBufferBase, dataSize);
 

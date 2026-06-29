@@ -1,7 +1,8 @@
 #pragma once
 #include "hzpch.h"
 #include "Base.h"
-namespace Hazel {
+namespace Hazel 
+{
 
 	// Events in Hazel are currently blocking, meaning when an event occurs it
 	// immediately gets dispatched and must be dealt with right then an there.
@@ -39,7 +40,6 @@ namespace Hazel {
 	public:
 		bool Handled = false;
 
-
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
@@ -47,7 +47,7 @@ namespace Hazel {
 
 		bool IsInCategory(EventCategory category)
 		{
-			return GetCategoryFlags() & category;
+			return GetCategoryFlags() & category;//按位与&，和普通与&&不同
 		}
 	};
 

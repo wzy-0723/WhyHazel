@@ -82,5 +82,15 @@ void Sandbox2D::OnImGuiRender()
 
 void Sandbox2D::OnEvent(Hazel::Event& e)
 {
+	Hazel::EventDispatcher dispatcher(e);
+	dispatcher.Dispatch<Hazel::KeyReleasedEvent>(HZ_BIND_EVENT_FN(Sandbox2D::OnKeyRelease));
+
 	m_CameraController.OnEvent(e);
+}
+
+
+bool Sandbox2D::OnKeyRelease(Hazel::KeyReleasedEvent e)
+{
+	HZ_CORE_INFO(e);
+	return false;
 }

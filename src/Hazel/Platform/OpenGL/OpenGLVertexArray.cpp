@@ -76,11 +76,11 @@ namespace Hazel
 				{
 					glEnableVertexAttribArray(m_VertexBufferIndex);
 					glVertexAttribPointer(m_VertexBufferIndex,
-						element.GetComponentCount(),
+						element.GetComponentCount(),					//当前index对应数据包含几个分量
 						ShaderDataTypeToOpenGLBaseType(element.Type),
 						element.Normalized ? GL_TRUE : GL_FALSE,
-						layout.GetStride(),
-						(const void*)element.Offset);
+						layout.GetStride(),								//一个顶点的总字节长度
+						(const void*)element.Offset);					//当前index对应数据在顶点中的偏移字节
 					m_VertexBufferIndex++;
 					break;
 				}
@@ -97,7 +97,7 @@ namespace Hazel
 							element.Normalized ? GL_TRUE : GL_FALSE,
 							layout.GetStride(),
 							(const void*)(sizeof(float) * count * i));
-						glVertexAttribDivisor(m_VertexBufferIndex, 1);
+						glVertexAttribDivisor(m_VertexBufferIndex, 1);//实例属性，每 1 个实例读取一组数据，同一个实例内所有顶点共享这条属性；提升性能
 						m_VertexBufferIndex++;
 					}
 					break;

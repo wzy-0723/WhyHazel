@@ -2,8 +2,8 @@
 
 #include "Buffer.h"
 
-namespace Hazel {
-
+namespace Hazel 
+{
 	class OpenGLVertexBuffer : public VertexBuffer
 	{
 	public:
