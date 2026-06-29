@@ -20,6 +20,7 @@ add_library(${PROJECT_NAME} STATIC ${source})
 target_include_directories(${PROJECT_NAME} PUBLIC 
 	${src_dir_path}/WhyUtil
 	${src_dir_path}/Hazel
+	${src_dir_path}/Hazel/Hazel-Editor
 	${src_dir_path}/Hazel/Hazel
 	${src_dir_path}/Hazel/Hazel/Core
 	${src_dir_path}/Hazel/Hazel/Debug

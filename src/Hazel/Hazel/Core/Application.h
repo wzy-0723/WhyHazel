@@ -33,7 +33,7 @@ namespace Hazel
 		bool OnWindowResize(WindowResizeEvent& e);
 		friend int ::main(int argc, char** argv);
 	public:
-		Application();
+		Application(const std::string& name = "Hazel App");
 		virtual ~Application();
 		
 
