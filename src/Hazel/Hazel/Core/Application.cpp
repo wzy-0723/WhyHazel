@@ -32,6 +32,11 @@ namespace Hazel
 		Renderer::Shutdown();
 	}
 
+	void Application::Close()
+	{
+		m_Running = false;
+	}
+
 	void Application::PushLayer(Layer* layer)
 	{
 		HZ_PROFILE_FUNCTION();

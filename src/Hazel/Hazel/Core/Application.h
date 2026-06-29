@@ -28,6 +28,7 @@ namespace Hazel
 		float m_LastFrameTime = 0.0f;
 	private:
 		void Run();
+		
 		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
 		friend int ::main(int argc, char** argv);
@@ -42,7 +43,7 @@ namespace Hazel
 		void PushOverlay(Layer* overlay);
 
 		Window& GetWindow() { return *m_Window; }
-
+		void Close();
 		static Application& Get() { return *s_Instance; }
 
 		

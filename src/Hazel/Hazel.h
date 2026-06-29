@@ -25,6 +25,7 @@
 
 #include "Buffer.h"
 #include "Shader.h"
+#include "Framebuffer.h"
 #include "Texture.h"
 #include "VertexArray.h"
 

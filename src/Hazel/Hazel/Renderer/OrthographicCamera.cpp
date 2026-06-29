@@ -10,6 +10,7 @@ namespace Hazel
 		: m_ProjectionMatrix(glm::ortho(left, right, bottom, top, -1.0f, 1.0f)), m_ViewMatrix(1.0f)
 	{
 		HZ_PROFILE_FUNCTION();
+		// OpenGL本身就是Y-up坐标，从Z向看去，就是一个平面，不需要view变化，仅需投影变化
 		m_ViewProjectionMatrix = m_ProjectionMatrix * m_ViewMatrix;
 	}
 
