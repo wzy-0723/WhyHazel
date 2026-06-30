@@ -69,10 +69,13 @@ namespace Hazel
 
 	void ImGuiLayer::OnEvent(Event& e)
 	{
-		ImGuiIO& io = ImGui::GetIO();
-		// 事件已经被ImGui占用，Handled告诉引擎不要再处理了
-		e.Handled |= e.IsInCategory(EventCategoryMouse) & io.WantCaptureMouse;
-		e.Handled |= e.IsInCategory(EventCategoryKeyboard) & io.WantCaptureKeyboard;
+		if (m_BlockEvents)
+		{
+			ImGuiIO& io = ImGui::GetIO();
+			// 事件已经被ImGui占用，Handled告诉引擎不要再处理了
+			e.Handled |= e.IsInCategory(EventCategoryMouse) & io.WantCaptureMouse;
+			e.Handled |= e.IsInCategory(EventCategoryKeyboard) & io.WantCaptureKeyboard;
+		}
 	}
 
 	void ImGuiLayer::Begin()

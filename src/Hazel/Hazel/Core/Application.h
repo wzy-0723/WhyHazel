@@ -45,7 +45,7 @@ namespace Hazel
 		Window& GetWindow() { return *m_Window; }
 		void Close();
 		static Application& Get() { return *s_Instance; }
-
+		ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
 		
 
 	};
