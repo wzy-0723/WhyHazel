@@ -10,7 +10,7 @@ find_package(glfw3 CONFIG REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(glad CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
-
+find_package(entt CONFIG REQUIRED)
 
 file(GLOB_RECURSE source CONFIGURE_DEPENDS *.h *.cpp *.qrc *.ui *.shader)
 
