@@ -25,7 +25,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 #message(STATUS "projectDir: ${projectDir}")
 
 
-copy_dir_to_bin(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/assets assets)
+#copy_dir_to_bin(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/assets assets)
 
 config_output_paths(${PROJECT_NAME})
 
