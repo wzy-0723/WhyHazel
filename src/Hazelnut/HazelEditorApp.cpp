@@ -1,9 +1,10 @@
+#include "hzpch.h"
 #include "Hazel.h"
-#include "EntryPoint.h"
 
 #include "EditorLayer.h"
-
-namespace Hazel {
+#include "EntryPoint.h"
+namespace Hazel 
+{
 
 	class HazelEditor : public Application
 	{
