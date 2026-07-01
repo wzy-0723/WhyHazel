@@ -1,12 +1,22 @@
 project(Hazelnut)
 file(GLOB_RECURSE source CONFIGURE_DEPENDS *.h *.cpp *.qrc *.ui *.glsl)
 
-include_directories(${src_dir_path}/Hazelnut)
+
+
+
 
 
 link_directories(${lib_dir_path})
+
 source_group_by_dir(source "./")
 add_executable(${PROJECT_NAME} ${source})
+
+target_include_directories(${PROJECT_NAME} PRIVATE 
+	${src_dir_path}/Hazelnut
+	${src_dir_path}/Hazelnut/panels
+
+)
+
 target_link_libraries(${PROJECT_NAME} PRIVATE 
 #自写库
 	Hazel
