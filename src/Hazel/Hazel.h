@@ -16,6 +16,8 @@
 
 #include "ImGuiLayer.h"
 #include "Scene.h"
+
+#include "ScriptableEntity.h"
 #include "Components.h"
 #include "Entity.h"
 

@@ -1,19 +1,6 @@
 #pragma once
+#include "PlatformDetection.h"
 #include <memory>
-#ifdef _WIN32
-	#ifdef _WIN64
-		#define HZ_PLATFORM_WINDOWS
-	#else
-		#error "x86 Builds are not supported!"
-	#endif
-#elif defined(__linux__)
-	#define HZ_PLATFORM_LINUX
-	#error "Linux is not supported!"
-#elif defined(__APPLE__)
-	#error "macOS is not supported!"
-#else
-	#error "Unknown target platform!"
-#endif
 
 #if defined(HZ_PLATFORM_WINDOWS)
 	#define HZ_DEBUGBREAK() __debugbreak()
