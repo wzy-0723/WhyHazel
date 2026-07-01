@@ -96,7 +96,7 @@ namespace Hazel
 							ShaderDataTypeToOpenGLBaseType(element.Type),
 							element.Normalized ? GL_TRUE : GL_FALSE,
 							layout.GetStride(),
-							(const void*)(sizeof(float) * count * i));
+							(const void*)(element.Offset + sizeof(float) * count * i));
 						glVertexAttribDivisor(m_VertexBufferIndex, 1);//实例属性，每 1 个实例读取一组数据，同一个实例内所有顶点共享这条属性；提升性能
 						m_VertexBufferIndex++;
 					}

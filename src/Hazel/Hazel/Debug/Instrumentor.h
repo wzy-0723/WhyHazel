@@ -7,6 +7,11 @@
 
 #include <thread>
 #include <iomanip>
+#include <mutex>
+#include <sstream>
+
+#include "Log.h"
+
 namespace Hazel 
 {
 	using FloatingPointMicroseconds = std::chrono::duration<double, std::micro>;
