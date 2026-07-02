@@ -11,6 +11,8 @@ find_package(OpenGL REQUIRED)
 find_package(glad CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
 find_package(entt CONFIG REQUIRED)
+find_package(yaml-cpp CONFIG REQUIRED)
+
 
 file(GLOB_RECURSE source CONFIGURE_DEPENDS *.h *.cpp *.qrc *.ui *.shader)
 
@@ -28,11 +30,11 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 	${src_dir_path}/Hazel/Hazel/ImGui
 	${src_dir_path}/Hazel/Hazel/Renderer
 	${src_dir_path}/Hazel/Hazel/Scene
+	${src_dir_path}/Hazel/Hazel/Utils
 	${src_dir_path}/Hazel/Platform/Windows
 	${src_dir_path}/Hazel/Platform/OpenGL
 
 )
-
 
 target_link_libraries(${PROJECT_NAME} PUBLIC 
 #
@@ -43,10 +45,10 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 	OpenGL::GL
 	glad::glad
 	imgui::imgui
+	yaml-cpp::yaml-cpp
 )
 
 # 设置预编译头 PRIVATE：仅 Hazel 内部源码包含 hzpch.h，外部Sandbox不强制
 # target_precompile_headers(Hazel PRIVATE ${src_dir_path}/Hazel/hzpch.h)
-
 
 config_output_paths(${PROJECT_NAME})
