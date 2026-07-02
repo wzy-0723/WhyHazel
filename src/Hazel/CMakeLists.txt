@@ -10,6 +10,7 @@ find_package(glfw3 CONFIG REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(glad CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)
+find_package(imguizmo CONFIG REQUIRED)
 find_package(entt CONFIG REQUIRED)
 find_package(yaml-cpp CONFIG REQUIRED)
 
@@ -28,6 +29,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 	${src_dir_path}/Hazel/Hazel/Debug
 	${src_dir_path}/Hazel/Hazel/Events
 	${src_dir_path}/Hazel/Hazel/ImGui
+	${src_dir_path}/Hazel/Hazel/Math
 	${src_dir_path}/Hazel/Hazel/Renderer
 	${src_dir_path}/Hazel/Hazel/Scene
 	${src_dir_path}/Hazel/Hazel/Utils
@@ -45,6 +47,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 	OpenGL::GL
 	glad::glad
 	imgui::imgui
+	imguizmo::imguizmo
 	yaml-cpp::yaml-cpp
 )
 
